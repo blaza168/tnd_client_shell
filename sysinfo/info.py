@@ -1,4 +1,5 @@
 import platform
+import socket
 
 def get_sys_info():
 
@@ -8,5 +9,6 @@ def get_sys_info():
         'platform': platform.platform(),
         'uname': platform.uname(),
         'system': platform.system(),
-        'processor': platform.processor()
+        'processor': platform.processor(),
+        'IP': socket.gethostbyname(socket.gethostname())
     }

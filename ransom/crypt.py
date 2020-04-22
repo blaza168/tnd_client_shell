@@ -1,5 +1,5 @@
 import os
-import files
+import ransom.files as files
 import utils
 import base64
 from ransom.asymmetric import AESCipher
